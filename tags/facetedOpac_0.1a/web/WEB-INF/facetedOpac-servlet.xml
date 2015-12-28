@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <bean name="/about.*"
+    class="mp.hsrky.facetedOpac.controller.AboutController">
+    </bean>
+
+    <bean name="/admin/search.*"
+    class="mp.hsrky.facetedOpac.controller.SearchController">
+    </bean>
+
+    <bean name="/admin/editBook.*"
+    class="mp.hsrky.facetedOpac.controller.admin.EditBookController">
+    </bean>
+
+    <bean name="/admin/deleteBook.*"
+    class="mp.hsrky.facetedOpac.controller.admin.DeleteBookController">
+    </bean>
+
+    <bean name="/admin/updateBook.*"
+    class="mp.hsrky.facetedOpac.controller.admin.UpdateBookController">
+    </bean>
+    
+    <bean name="/search.*"
+    class="mp.hsrky.facetedOpac.controller.SearchController">
+    </bean>
+
+    <bean name="/admin/home.*"
+    class="mp.hsrky.facetedOpac.controller.admin.HomeController">
+    </bean>
+    
+    <bean name="/admin/fail*"
+    class="mp.hsrky.facetedOpac.controller.FailController">
+    </bean>
+
+
+    <bean name="/admin/addbookPic.*"
+   class="mp.hsrky.facetedOpac.controller.admin.AddBookPicController">
+    </bean>
+    <bean name="/admin/addBook.*"
+   class="mp.hsrky.facetedOpac.controller.admin.AddBookController">
+    </bean>
+
+    <bean name="/admin/login.*"
+   class="mp.hsrky.facetedOpac.controller.admin.LoginController">
+    </bean>
+
+    <bean name="/book.*"
+   class="mp.hsrky.facetedOpac.controller.BookDetailController">
+    </bean>
+
+    <bean name="/index.*"
+   class="mp.hsrky.facetedOpac.controller.IndexController">
+    </bean>
+
+    <bean name="/browse.*"
+   class="mp.hsrky.facetedOpac.controller.SearchController">
+    </bean>
+    
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+</beans>

@@ -1,0 +1,121 @@
+.container {
+    border-color:#A7B8C1;
+    border-style:solid;
+    border-width:1px 2px 2px 1px;
+    margin:5px 0;
+    padding:0;
+    width:100%;
+    overflow-x:visible;
+    overflow-y:visible;
+    position:relative;
+    border-collapse:collapse;
+}
+
+.f_header {
+    cursor:pointer;
+    background-color:#EDF6F5;
+    color:#006666;
+    border-color:#006666;
+    font-size:1em;
+    padding:5px;
+    border-style:solid;
+    border-width:1px;
+    border-collapse:collapse;
+    font-weight:bold;
+}
+
+.f_header:hover {
+    color:#E33E3E;
+}
+
+.headerToggleMinus {
+    background-image:url(../images/plus.gif);
+    background-repeat:no-repeat;
+    cursor:pointer;
+    display:block;
+    float:left;
+    font-size:1.2em;
+    font-weight:bold;
+    height:18px;
+    line-height:1em;
+    margin-right:7px;
+    padding:0;
+    text-align:center;
+    text-indent:0;
+    vertical-align:middle;
+    width:18px;
+}
+
+.headerTogglePlus {
+    background-image:url(../images/minus.gif);
+    background-repeat:no-repeat;
+    cursor:pointer;
+    display:block;
+    float:left;
+    font-size:1.2em;
+    font-weight:bold;
+    height:18px;
+    line-height:1em;
+    margin-right:7px;
+    padding:0;
+    text-align:center;
+    text-indent:0;
+    vertical-align:middle;
+    width:18px;
+}
+
+.f_resultNumber {
+    background-color:#FFFFFF;
+    border:1px solid #A7B8C1;
+    cursor:pointer;
+    float:right;
+    margin-left:5px;
+    min-width:50px;
+    text-align:center;
+    width:3em;
+}
+.f_container {
+    margin-bottom:8px;
+}
+.f_container a:link, .f_container a:visited {
+    color:#006666;
+    text-decoration:underline;
+}
+.f_container a:hover {
+    color:#E33E3E;
+    text-decoration:none;
+}
+
+.f_content {
+    border-style:solid;
+    border-width:1px;
+    border-color:#006666;
+    display:none;
+}
+
+ul.f_contentWithBorder {
+    background-color:#FFFFFF;
+    border-color:#A7B8C1;
+    border-style:solid;
+    border-width:1px 0 0;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    margin:0;
+    padding:3px 6px 3px 10px;
+}
+
+ul.f_contentWithBorder.li {
+    padding:3px;
+}
+
+.f_subElement,f_facetName{
+    padding-top:2px;
+    margin-bottom:2px;
+}
+.f_facetName {
+    width:30px;
+}
+
+
+

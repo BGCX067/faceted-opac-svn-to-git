@@ -1,0 +1,212 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.1.34-community
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema faceted_opac
+--
+
+CREATE DATABASE IF NOT EXISTS faceted_opac;
+USE faceted_opac;
+
+--
+-- Definition of table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` (`id`,`username`,`password`,`name`) VALUES 
+ (1,'admin','admin','Administrator');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+
+
+--
+-- Definition of table `book`
+--
+
+DROP TABLE IF EXISTS `book`;
+CREATE TABLE `book` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(256) NOT NULL,
+  `call_number` varchar(45) NOT NULL,
+  `format` int(10) unsigned NOT NULL,
+  `location` int(10) unsigned NOT NULL,
+  `location_link` varchar(256) DEFAULT NULL,
+  `imprint` varchar(256) NOT NULL,
+  `year` int(10) unsigned NOT NULL,
+  `publisher` varchar(128) NOT NULL,
+  `language` int(10) unsigned NOT NULL,
+  `description` text,
+  `image` varchar(256) DEFAULT 'book_cover/default.jpg',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `book`
+--
+
+/*!40000 ALTER TABLE `book` DISABLE KEYS */;
+/*!40000 ALTER TABLE `book` ENABLE KEYS */;
+
+
+--
+-- Definition of table `book_author`
+--
+
+DROP TABLE IF EXISTS `book_author`;
+CREATE TABLE `book_author` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `book_id` int(10) unsigned NOT NULL,
+  `author` varchar(128) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `book_author`
+--
+
+/*!40000 ALTER TABLE `book_author` DISABLE KEYS */;
+/*!40000 ALTER TABLE `book_author` ENABLE KEYS */;
+
+
+--
+-- Definition of table `book_isbn`
+--
+
+DROP TABLE IF EXISTS `book_isbn`;
+CREATE TABLE `book_isbn` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `book_id` int(10) unsigned NOT NULL,
+  `isbn` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `book_isbn`
+--
+
+/*!40000 ALTER TABLE `book_isbn` DISABLE KEYS */;
+/*!40000 ALTER TABLE `book_isbn` ENABLE KEYS */;
+
+
+--
+-- Definition of table `book_subject`
+--
+
+DROP TABLE IF EXISTS `book_subject`;
+CREATE TABLE `book_subject` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `book_id` int(10) unsigned NOT NULL,
+  `subject` varchar(128) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `book_subject`
+--
+
+/*!40000 ALTER TABLE `book_subject` DISABLE KEYS */;
+/*!40000 ALTER TABLE `book_subject` ENABLE KEYS */;
+
+
+--
+-- Definition of table `ref_format`
+--
+
+DROP TABLE IF EXISTS `ref_format`;
+CREATE TABLE `ref_format` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `format` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ref_format`
+--
+
+/*!40000 ALTER TABLE `ref_format` DISABLE KEYS */;
+INSERT INTO `ref_format` (`id`,`format`) VALUES 
+ (1,'Book'),
+ (2,'Online'),
+ (3,'Thesis');
+/*!40000 ALTER TABLE `ref_format` ENABLE KEYS */;
+
+
+--
+-- Definition of table `ref_language`
+--
+
+DROP TABLE IF EXISTS `ref_language`;
+CREATE TABLE `ref_language` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `language` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ref_language`
+--
+
+/*!40000 ALTER TABLE `ref_language` DISABLE KEYS */;
+INSERT INTO `ref_language` (`id`,`language`) VALUES 
+ (1,'English'),
+ (2,'Bahasa Melayu');
+/*!40000 ALTER TABLE `ref_language` ENABLE KEYS */;
+
+
+--
+-- Definition of table `ref_location`
+--
+
+DROP TABLE IF EXISTS `ref_location`;
+CREATE TABLE `ref_location` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `location` varchar(128) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ref_location`
+--
+
+/*!40000 ALTER TABLE `ref_location` DISABLE KEYS */;
+INSERT INTO `ref_location` (`id`,`location`) VALUES 
+ (1,'PTSL-KOLEKSI AM'),
+ (2,'Online'),
+ (3,'PTSL-KOLEKSI ASIA');
+/*!40000 ALTER TABLE `ref_location` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
